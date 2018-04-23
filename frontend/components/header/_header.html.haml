@@ -1,0 +1,19 @@
+.container-fluid.header
+      
+  .header-content
+    .row
+      .col-md-4
+        .logo
+          5tracks
+      .col-md-4
+        Nav stuff
+      .col-md-2
+        =form_tag "/search", method: 'get' do
+          = text_field_tag :q, nil, :placeholder => "Search", class: "form-control search-input"
+      .col-md-2
+        .float-right
+          -if signed_in?
+            =link_to "Sign out", destroy_user_session_path, method: :delete
+          -else
+            =link_to "Sign up", new_user_registration_path
+            =link_to "Sign in", new_user_session_path

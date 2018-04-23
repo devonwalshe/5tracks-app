@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title FivetracksAll
+    = csrf_meta_tags
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+  %body
+    .container-fluid.splash-logo
+      .row
+        .col-md-12
+          #text
+            5tracks
+            =link_to new_user_session_path do
+              .btn.btn-primary>
+                Sign In
+            =link_to new_user_registration_path do
+              .btn.btn-primary>
+                Sign Up
+    .container-fluid.splash-hero
+      .row
+        .col-md-12
+          .text
+            5tracks
+            
+    .container-fluid
+      .row
+        .col-md-12
+          .content

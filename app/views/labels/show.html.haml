@@ -1,0 +1,13 @@
+.row
+  .col-md-8
+    .label-pill
+      =@label.class.name.underscore.humanize
+    %h1
+      =@label.name
+    =c "artists_list", artists: @artists
+    =c "release_list", releases: @releases
+  .col-md-4
+    =@label.release_activity
+    
+  
+

@@ -1,0 +1,47 @@
+@import "../../styles/app.scss";
+
+.footer {
+  width: 100%;
+  height:20px;
+  
+  .palette{
+    .one{
+      background: $regal-velvet;
+    }
+    .two{
+      background: $sand;
+      color: $regal-velvet;
+    }
+    .three{
+      background: $sunrise;
+    }
+    .four{
+      background: $stone;
+    }
+    .five{
+      background: $agave;
+    }
+    .six{
+      background: $terminal;
+    }
+    .seven{
+      background: $stagsblood;
+    }
+    .eight{
+      background: $aquamarine;
+    }
+    .nine{
+      background: $dusk;
+    }
+    .ten{
+      background: $lace;
+    }
+    .eleven{
+      background: $charcoal;
+    }
+    .twelve{
+      background: $midgrey;
+    }
+    
+  }
+}

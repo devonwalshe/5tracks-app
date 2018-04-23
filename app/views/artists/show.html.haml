@@ -1,0 +1,17 @@
+.row
+  .col-md-8
+    .artist-pill
+      Artist
+    #id{'data-params-id': "#{params[:id]}"}
+    =c "enqueue_button", qt_diff: @qt_diff, context: "artist", parent_id: @artist.id 
+    %h1
+      =@artist.name
+    -if @artist.realname
+      Realname:
+      =@artist.realname
+    =c "release_list", releases: @releases, artist: @artist
+    #labels-list
+    -# =c "labels_list", labels: @labels, artist: @artist
+  .col-md-4
+    Stats / data stuff
+

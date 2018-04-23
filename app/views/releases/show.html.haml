@@ -1,0 +1,29 @@
+.row
+  .col-md-8
+    .release-pill
+      Release
+    %h3
+      -if @main_artists
+        -@main_artists.each_with_index do |ra, i|
+          
+          -if ra.join_string == "," and i != @main_artists.count-1
+            %span>=link_to ra.artist.name, artist_path(ra.artist)
+          -else
+            =link_to ra.artist.name, artist_path(ra.artist)
+          -unless i == @main_artists.count-1
+            ="#{ra.join_string}"
+            
+      -else
+        Various
+      
+      =" - "
+      =@release.title
+    -if @release.released
+      Released: 
+      =@release.released
+    %br
+    Label:
+    =link_to @release.label.name, label_path(@release.label)
+    =c "track_list", tracks: @release.release_tracks
+  .col-md-4
+    Release stats

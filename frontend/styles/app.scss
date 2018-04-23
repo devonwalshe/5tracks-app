@@ -1,0 +1,17 @@
+//Bootstrap
+@import '~bootstrap/scss/functions';
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+
+//Defaults
+@import 'palette.scss';
+@import 'defaults.scss';
+
+// Page specific
+@import 'pages.scss';
+@import 'splash.scss';
+@import 'label.scss';
+@import 'artist.scss';
+@import 'release.scss';
+@import 'releasetrack.scss';
+

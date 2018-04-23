@@ -3,7 +3,17 @@
   %head
     %title FivetracksAll
     = csrf_meta_tags
-    = stylesheet_pack_tag  'application'
+    = stylesheet_pack_tag 'application'
     = javascript_pack_tag 'application'
-  %body
-    = yield
+  %body{class: "#{controller_name} #{action_name}"}
+    #wrapper
+      = c "header"
+      #content
+        .flash
+          -flash.each do |key, value|
+            .text
+              %div{class: flash_class(key)}
+                =value
+    
+        = yield
+      = c "footer"

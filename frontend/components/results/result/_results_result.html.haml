@@ -1,0 +1,33 @@
+.col-md-3
+  %ul{class: "list-group"}
+    %li{class: "list-group-item"}
+      Artists:
+      -@result.artists.each do |artist|
+        =link_to artist.name, artist_path(artist)
+    %li{class: "list-group-item"}
+      Track:
+      =link_to @result.track.title, release_track_path(@result.track)
+    %li{class: "list-group-item"}
+      Release:
+      =link_to "#{@result.release.title} (#{@result.release.released})", release_path(@result.release)
+    %li{class: "list-group-item"}
+      Label:
+      =link_to @result.release.label.name, label_path(@result.release.label)
+      
+    -# %li{class: "list-group-item"}
+    -#   Track:
+    -#   =@result.track.title
+    -# %li{class: "list-group-item"}
+    -#   Artists:
+    -#   -@result.artists.each do |artist|
+    -#     =link_to artist.name, artists_show_path
+    -# %li{class: "list-group-item"}
+    -#   Artists:
+    -#   -@result.artists.each do |artist|
+    -#     =link_to artist.name, artists_show_path
+
+-# %ul
+-#   %li
+-#     =@result.title
+-#   %li
+-#     =@result.title

@@ -1,0 +1,7 @@
+#release-list.paginated{param: :releases_page}
+  %h4
+    =@releases.total_count
+    Releases
+  =paginate @releases, param_name: :releases_page, remote: true
+  -@releases.each do |release|
+    =link_to release.title, release_path(release)

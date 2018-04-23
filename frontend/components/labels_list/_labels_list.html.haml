@@ -1,0 +1,22 @@
+#labels-list.paginated{param: :labels_page}
+  %h4
+    Released on 
+    =@labels.total_count
+    labels
+  =paginate @labels, param_name: :labels_page, remote: true
+  %table.table
+    %thead
+      %tr
+        %th Label
+        %th ReleaseCount
+    %tbody
+      -@labels.each do |l|
+        %tr
+          %td 
+            =link_to l.name, label_path(l)
+          %td
+            -if @artist
+              =l.artist_releases(@artist.id).count
+            -else
+              =l.releases.count
+          

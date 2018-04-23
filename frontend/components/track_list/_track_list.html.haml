@@ -1,0 +1,39 @@
+#tracklist
+  %h3 Tracklist
+  %table.table
+    %thead
+      %tr
+        %th Position
+        %th Name
+        %th Credits
+        %th Duration
+        %th Queue
+    %tbody
+      -@tracks.each do |t|
+        %tr
+          %td 
+            = t.position
+          %td 
+            =link_to t.title, release_track_path(t)
+          %td 
+            -if t.release_track_artists
+              -t.release_track_artists.each do |rta|
+              
+                -if t.release_track_artists.last != rta
+                  -if rta.anv
+                    =link_to(rta.anv, artist_path(rta.artist)) + ", "
+                  -else
+                    =link_to(rta.artist.name, artist_path(rta.artist)) + ", "
+                -else
+                  -if rta.anv
+                    =link_to(rta.anv, artist_path(rta.artist))
+                  -else
+                    =link_to(rta.artist.name, artist_path(rta.artist))
+          %td
+            = t.duration
+          %td
+          
+            -if t.queued
+              =t.on_queue
+            -else
+              =button_to "Add to scrub", enqueue_path, remote: true, params: {ids: t.id, context: "tracklist", parent_id: t.release.id, queue: "scrub"}
